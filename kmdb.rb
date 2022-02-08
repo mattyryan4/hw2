@@ -72,6 +72,33 @@ Movie.destroy_all
 person.destroy_all
 role.destroy_all
 
+# Generate models and tables, according to the domain model
+rails Generate model Movie title:string
+rails Generate model People name:string
+rails Generate model Role movieid:integer personid:integer character:string 
+rails db:migrate
+
+# Insert data into your database that reflects the sample data shown above
+# Do not use hard-coded foreign key IDs.
+# TODO!
+
+# Prints a header for the movies output
+puts "Movies"
+puts "======"
+puts ""
+
+# Query the movies data and loop through the results to display the movies output
+# TODO!
+
+# Prints a header for the cast output
+puts ""
+puts "Top Cast"
+puts "========"
+puts ""
+
+# Query the cast data and loop through the results to display the cast output for each movie
+# TODO!
+
 person1 = Person.new 
 person1.name = "Christopher Nolan"
 person1.save 
@@ -255,31 +282,3 @@ for role in roles
     person = person.where({id: role.person_id}) [0] 
     puts "#{movie.title} #{person.name} #{role.character_name}"
 end
-
-
-# Generate models and tables, according to the domain model
-rails Generate model Movie title:string
-rails Generate model People name:string
-rails Generate model Role movieid:integer personid:integer character:string 
-rails db:migrate
-
-# Insert data into your database that reflects the sample data shown above
-# Do not use hard-coded foreign key IDs.
-# TODO!
-
-# Prints a header for the movies output
-puts "Movies"
-puts "======"
-puts ""
-
-# Query the movies data and loop through the results to display the movies output
-# TODO!
-
-# Prints a header for the cast output
-puts ""
-puts "Top Cast"
-puts "========"
-puts ""
-
-# Query the cast data and loop through the results to display the cast output for each movie
-# TODO!
